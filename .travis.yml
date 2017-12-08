@@ -3,7 +3,9 @@ dist: trusty
 mono: none
 dotnet: 2.0.0
 script:
+ - cd Tweets.Web
  - npm install -g bower
+ - cd ..
  - bower install
  - dotnet restore
  - dotnet build
