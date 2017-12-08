@@ -287,4 +287,4 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 #Ignore bower install directory
-/Tweets.Web/Tweets.Web/wwwroot/lib
+/Tweets.Web/wwwroot/lib
