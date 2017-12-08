@@ -1,6 +1,7 @@
 # TWEETS
 _Tweets_ is a web application created to complete below challenge.
 
+[![Cross platform Build Status](https://travis-ci.org/shibut12/Tweets.svg?branch=master)](https://travis-ci.org/shibut12/MemBank)
 ## CHALLENGE
 * Build a simple Twitter feed reader that shows the last 10 tweets from [@salesforce](https://twitter.com/salesforce) user timeline.
 * Each minute this list of tweets should automatically update to show only the 10 most recent tweets.
