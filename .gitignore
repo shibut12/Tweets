@@ -289,3 +289,4 @@ __pycache__/
 #Ignore bower install directory
 /Tweets.Web/wwwroot/lib
 .vscode/
+/Tweets.Web/appsettings.json

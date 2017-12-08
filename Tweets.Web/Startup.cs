@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Tweets.Web.Data;
 using Tweets.Web.Models;
 using Tweets.Web.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Tweets.Web
 {
@@ -32,6 +33,22 @@ namespace Tweets.Web
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddAuthentication().AddTwitter(twitterOptions => {
+                twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
+                twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+            });
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = "Tweets";
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+                options.AccessDeniedPath = "/Account/AccessDenied";
+                options.SlidingExpiration = true;
+                options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+            });
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
@@ -56,7 +73,7 @@ namespace Tweets.Web
             app.UseStaticFiles();
 
             app.UseAuthentication();
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
