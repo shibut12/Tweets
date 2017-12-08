@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tweets.Web\Tweets.Web\Tweets.Web.csproj" />
+    <ProjectReference Include="..\Tweets.Web\Tweets.Web.csproj" />
   </ItemGroup>
 
 </Project>
