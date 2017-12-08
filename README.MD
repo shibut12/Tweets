@@ -27,3 +27,43 @@ _Tweets_ is a web application created to complete below challenge.
 * The server should be runnable as a standalone process for evaluation.
 * Server code should have effective unit tests.
 ---
+### HOW TO RUN
+This application needs .Net core 2.0 + runtime for server components. The development / build agents or machine should have Node JS, npm, and bower.
+#### Prerequisites
+* Install latest .Net Core
+	https://www.microsoft.com/net/learn/get-started/windows
+* Install Node js & npm
+	https://nodejs.org/en/
+* Install bower
+ ```posh
+ npm install -g bower
+ ```
+ #### Verify installed of Prerequisites
+ Run following commands to verify you have all the dependencies got right.
+ ```posh
+dotnet --version
+node --version
+npm --version
+bower --version
+ ```
+ #### Build, Test and Run Tweets
+ ##### Restore and build web application
+ Run following commands in a shell
+ ```posh
+cd Tweets.Web
+dotnet restore
+bower install
+dotnet build
+```
+#### Restore, build, and test Test application
+```posh
+cd Tweets.Web.Tests
+dotnet restore
+dotnet build
+dotnet test
+```
+#### Run Tweets web application
+```posh
+cd Tweets.Web
+dotnet run
+```
