@@ -5,5 +5,5 @@ dotnet: 2.0.0
 script:
  - dotnet restore
  - dotnet build
- - cd Tweets.Tests
+ - cd Tweets.Web.Tests
  - dotnet test

@@ -15,17 +15,17 @@ before_build:
   # Display .NET Core version
   - cmd: dotnet --version
   # Display minimal restore text
-  #- cmd: dotnet restore ./MeMBank.Service/MemBank.Service.csproj --verbosity m
+  - cmd: dotnet restore ./Tweets.Web/Tweets.Web.csproj --verbosity m
 build_script:
-  #- cmd: dotnet build ./MeMBank.Service/MemBank.Service.csproj
+  - cmd: dotnet build ./Tweets.Web/Tweets.Web.csproj
 after_build:
   # For once the build has completed
 test_script:
-  #- OpenCover.Console.exe -target:"dotnet.exe" -targetargs:" test " -register:user -oldStyle -output:OpenCoverResults.xml
+  - OpenCover.Console.exe -target:"dotnet.exe" -targetargs:" test " -register:user -oldStyle -output:OpenCoverResults.xml
 after_test:
-  #- ps: |
-  #    Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
-  #    bash codecov.sh -f "OpenCoverResults.xml" -t $env:CODECOV_IO_TOKEN
+  - ps: |
+      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
+      bash codecov.sh -f "OpenCoverResults.xml" -t $env:CODECOV_IO_TOKEN
 on_finish :
   # any cleanup in here
 deploy: off

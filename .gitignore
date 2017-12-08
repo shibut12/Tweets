@@ -286,3 +286,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+#Ignore bower install directory
+/Tweets.Web/Tweets.Web/wwwroot/lib
