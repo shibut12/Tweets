@@ -288,3 +288,4 @@ __pycache__/
 *.xsd.cs
 #Ignore bower install directory
 /Tweets.Web/wwwroot/lib
+.vscode/
