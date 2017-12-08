@@ -3,6 +3,7 @@ dist: trusty
 mono: none
 dotnet: 2.0.0
 script:
+ - bower install
  - dotnet restore
  - dotnet build
  - cd Tweets.Web.Tests
