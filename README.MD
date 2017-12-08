@@ -25,3 +25,4 @@ _Tweets_ is a web application created to complete below challenge.
 ### BACK-END RESTRICTIONS
 * The server should be runnable as a standalone process for evaluation.
 * Server code should have effective unit tests.
+---
