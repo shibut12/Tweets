@@ -1,0 +1,7 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "salesforce-lightning-design-system": "^2.3.1"
+  }
+}

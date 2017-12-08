@@ -19,24 +19,29 @@
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Email"></label>
-                    <input asp-for="Email" class="form-control" />
+                    <input asp-for="Email" class="form-control slds-input" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control" />
+                    <input asp-for="Password" class="form-control slds-input" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="RememberMe">
-                            <input asp-for="RememberMe" />
-                            @Html.DisplayNameFor(m => m.RememberMe)
-                        </label>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <span class="slds-checkbox">
+                            <input type="checkbox" name="RememberMe" id="RememberMe" value="on" />
+                            <label class="slds-checkbox__label" for="RememberMe">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-form-element__label">@Html.DisplayNameFor(m => m.RememberMe)</span>
+                            </label>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default">Log in</button>
+                    <button type="submit" class="slds-button slds-button_neutral">Log in</button>
                 </div>
                 <div class="form-group">
                     <p>
