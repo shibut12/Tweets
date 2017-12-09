@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tweets.Web", "Tweets.Web\Tweets.Web.csproj", "{3C68C625-78F5-427F-B7D8-8A3414C3AE85}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tweets.Web.Tests", "Tweets.Web.Tests\Tweets.Web.Tests.csproj", "{2E2E03C3-A2A0-470C-BE10-DA77E5B96283}"
 EndProject
 Global
@@ -17,18 +15,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Debug|x64.Build.0 = Debug|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Debug|x86.Build.0 = Debug|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Release|x64.ActiveCfg = Release|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Release|x64.Build.0 = Release|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Release|x86.ActiveCfg = Release|Any CPU
-		{3C68C625-78F5-427F-B7D8-8A3414C3AE85}.Release|x86.Build.0 = Release|Any CPU
 		{2E2E03C3-A2A0-470C-BE10-DA77E5B96283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E2E03C3-A2A0-470C-BE10-DA77E5B96283}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E2E03C3-A2A0-470C-BE10-DA77E5B96283}.Debug|x64.ActiveCfg = Debug|Any CPU
