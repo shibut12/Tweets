@@ -6,10 +6,10 @@ script:
  - cd Tweets.Web
  - npm install -g bower
  - bower install
- - dotnet restore
+ - dotnet restore --verbosity m
  - dotnet build
  - cd ..
  - cd Tweets.Web.Tests
- - dotnet restore
+ - dotnet restore --verbosity m
  - dotnet build
  - dotnet test

@@ -12,10 +12,10 @@ init:
 install:
   # Install repo specific stuff here
 before_build:
-  # Display .NET Core version
   - cmd: cd Tweets.Web
   - cmd: npm install -g bower
   - cmd: bower install
+  # Display .NET Core version
   - cmd: dotnet --version
   - cmd: cd ..
   # Display minimal restore text
