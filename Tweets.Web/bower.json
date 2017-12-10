@@ -2,6 +2,7 @@
   "name": "tweets-coding-challenge",
   "private": true,
   "dependencies": {
-    "salesforce-lightning-design-system": "^2.3.1"
+    "salesforce-lightning-design-system": "^2.3.1",
+    "ionicons-min": "v2.0.1"
   }
 }

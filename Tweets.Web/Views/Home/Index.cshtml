@@ -2,6 +2,6 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1 class="slds-text-heading_large">Index</h1>
-
+<form method="post" action="/Account/ExternalSignin" class="slds-container_fluid">
+    <button type="submit" class="slds-button slds-button--brand slds-align_absolute-center" name="provider" value="Twitter"> <i class="ion-social-twitter"></i> Signin with Twitter</button>
+</form>
