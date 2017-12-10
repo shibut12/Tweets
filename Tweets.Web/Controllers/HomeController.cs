@@ -26,7 +26,7 @@ namespace Tweets.Web.Controllers
             var tweetsJson = await _twitterService.GetTweetsJson("salesforce");
             TwitterFeedViewModel model = new TwitterFeedViewModel();
             model.Tweets = _twitterService.MapJson(tweetsJson);
-            
+
 
             return View();
         }

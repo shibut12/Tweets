@@ -3,6 +3,9 @@
   "private": true,
   "dependencies": {
     "salesforce-lightning-design-system": "^2.3.1",
-    "ionicons-min": "v2.0.1"
+    "ionicons-min": "v2.0.1",
+    "backbone": "^1.3.3",
+    "underscore": "^1.8.3",
+    "jquery": "^3.2.1"
   }
 }
