@@ -30,8 +30,11 @@ Visit [tweets.codewithdot.net](http://tweets.codewithdot.net) to see a running v
 ### BACK-END RESTRICTIONS
 * The server should be runnable as a standalone process for evaluation.
 * Server code should have effective unit tests.
----
+
+
 ## DESIGN
+
+---
 ### SERVER SIDE COMPONENTS
 Server side component is implemented in ASP.NET Core. The server module is responsible for, running own web server, authenticating user sessions, serving static files, and communicating with Twitter API's to retrieve user's time line feed.
 ##### SECURITY (AUTHENTICATION & AUTHORIZATION)
@@ -52,8 +55,10 @@ _Tweets_ application defines, _TwitterService_ and _HttpHelper_ classes are serv
 XUnit.Net is used along with MOQ framework for unit testing server side components. Each controller and service is unit tested to ensure they return expected types.
 Dependencies are Mocked using _MOQ_.
 
----
+
 ### CLIENT SIDE COMPONENTS
+---
+
 The user facing components are build using _Razor Views (CSHTML)_ along with _Backbone_, _Underscore_, and jQuery.
 ##### MODELS AND VIEWS USING BACKBONE & UNDERSCORE
 Tweets application has defined a _Backbone Model_ for following fields,
@@ -76,8 +81,10 @@ _Tweets_ application has very minimal _vanilla javascript_ code in it. __IIFE (I
 ##### SALESFORCE LIGHNING DESIGN SYSTEM
 Markup's are styled using __Salesforce Lightning design system__.
 
----
+
 ### CONTINUOUS INTEGRATION
+---
+
 #### AUTOMATED BUILD & TEST: APPVEYOR
 __APPVEYOR__ provides a free Visual studio environemnt for building .NET application that are hosted in public repositories. it provides quick integration with __GitHub__ and easy to setup. I use _APPVEYOR_ for automated buiding and Uniting.
 
@@ -91,8 +98,9 @@ I use __Travis CI__ for ensuring that the application is compatible __CROSS PLAT
 In the beginning, I decided to use __OpenCover__ for generating Code coverage report for server side components and __CodeCove.io__ to to Display reports. It iwas included in the _CI pipeline_ but due to a Bug in _OpenCover_ with _MOQ_, it is impossible to generate code coverage reports. 
 [Click here to read more about OpenCover open issue with MOQ](https://github.com/OpenCover/opencover/issues/771).
 
----
+
 ### CONFIGURATION
+---
 #### Application configuration
 Before you start running teh application, you need to install the application in [apps.twitter.com](https://apps.twitter.com). Once you complete application registration update the appSettings.json file with Settings from _Tweets and Acess Tokens_ tab.
 
@@ -110,8 +118,10 @@ AppSettings.json file is never checked in with real key in it.
 }
 ```
 
----
+
 ### HOW TO RUN
+---
+
 This application needs .Net core 2.0 + runtime for server components. The development / build agents or machine should have Node JS, npm, and bower.
 #### Prerequisites
 * Install latest .Net Core
@@ -155,8 +165,10 @@ dotnet run
 ```
 Open [http://localhost:5007](http://localhost:5007) on your favorite browser to open _Tweets_ application.
 
----
+
 ### DEMO OF TWEETS APPLICATION
+---
+
 * Link to demo application is [http://tweets.codewithdot.net](http://tweets.codewithdot.net).
 #### HOW IS IT HOSTED?
 * The demo web application is hosted in a shared Ubuntu 16.04LTS web server.
