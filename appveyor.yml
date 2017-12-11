@@ -1,6 +1,6 @@
 version: '1.0.{build}'
 environment:
- CODECOV_IO_TOKEN:
+ CODECOVIOTOKEN:
     secure: NbQAmZlQOcXl9mwtWKkPBsED0YFOy5Q2q21/NZMOo4oxHQSTBxAL3693pahGgK5Q
 image: Visual Studio 2017
 branches:
@@ -29,7 +29,7 @@ test_script:
 after_test:
   - ps: |
       Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
-      bash codecov.sh -f "OpenCoverResults.xml" -t $env:CODECOV_IO_TOKEN
+      bash codecov.sh -f "OpenCoverResults.xml" -t $env:CODECOVIOTOKEN
 on_finish :
   # any cleanup in here
 deploy: off
