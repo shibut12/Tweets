@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Tweets.Web.Models;
@@ -22,7 +21,6 @@ namespace Tweets.Web.Controllers
         public async Task<IEnumerable<Tweet>> GetAll()
         {
             var tweetsJson = await _twitterService.GetTweetsJson("salesforce");
-            TwitterFeedViewModel model = new TwitterFeedViewModel();
             return (_twitterService.MapJson(tweetsJson));
         }
     }

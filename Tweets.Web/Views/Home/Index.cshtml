@@ -1,316 +1,93 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Feed Reader";
 }
 <div class="slds-container_fluid">
     <article class="slds-card">
         <div class="slds-card__header slds-grid">
             <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                <div class="slds-media__figure">
-                    <span class="slds-icon_container slds-icon-standard-contact" title="description of icon when needed">
-                        <svg class="slds-icon slds-icon_small" aria-hidden="true">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact" />
-                        </svg>
-                    </span>
-                </div>
                 <div class="slds-media__body">
                     <h1 class="slds-text-heading_large">
-                        Hello @@shibut12,
+                        Hello @ViewBag.UserName,
                     </h1>
                 </div>
             </header>
             <div class="slds-no-flex">
                 <form action="/Account/Logout" method="post">
-                    <button type="submit" class="slds-button slds-button_neutral">Logout</button>
+                    <button type="submit" class="slds-button slds-button_neutral slds-align_absolute-center" >
+                        <i class="ion-log-out tweets-icon-medium slds-p-right_small"></i>
+                        Logout
+                    </button>
                 </form>
             </div>
         </div>
         <div class="slds-card__body">
             <ul class="slds-card__body_inner slds-grid slds-wrap slds-grid_pull-padded">
-                <li class="slds-p-horizontal_small slds-size_1-of-1 slds-medium-size_1-of-3">
-                    <article class="slds-tile slds-media slds-card__tile slds-hint-parent">
-                        <div class="slds-media__body">
-                            <div class="slds-tile__detail">
+                <li class="slds-p-horizontal_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                            <form id="FilterTweet" class="slds-grid slds-form--inline">
                                 <div class="slds-form-element">
-                                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
-                                        <svg class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
-                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="~lib/salesforce-lightning-design-system/assets/icons/utility-sprite/svg/symbols.svg#search" />
-                                        </svg>
-                                        <input type="text" id="tweets-filter--input" class="slds-input" placeholder="Filter tweets containing." />
+                                    <label class="slds-form-element__label" for="tweetfilter">Filter tweets containing</label>
+                                    <div class="slds-form-element__control">
+                                        <input type="text" id="tweetfilter" class="slds-input" placeholder="Enter a search string." />
                                     </div>
                                 </div>
-                            </div>
+                                <div class="slds-form-element">
+                                    <button type="submit" id="tweetfilterbutton" class="slds-button slds-button--brand">FILTER</button>
+                                </div>
+                            </form>
                         </div>
-                    </article>
+                    </div>
+                </li>
+                <li class="slds-p-horizontal_small slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <p class="slds-text-body_small">Most recent 10 tweets from @@salesforce are displayed in the feed.</p>
+                    <p class="slds-text-body_small">Tweets are refreshed every 60 seconds.</p>
+                    <p class="slds-text-body_small">You can filter the tweets in the feed by entering a text and clicking on filter button.</p>
                 </li>
             </ul>
         </div>
         <footer class="slds-card__footer"></footer>
     </article>
 </div>
+
 <div class="slds-container_fluid">
-    <div class="slds-feed slds-scrollable_y" style="height:100vh;">
-        <ul class="slds-feed__list ">
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
-            <li class="slds-feed__item">
-                <article class="slds-post">
-                    <header class="slds-post__header slds-media">
-                        <div class="slds-media__figure">
-                            <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                <img alt="Jason Rodgers" src="~/lib/salesforce-lightning-design-system/assets/images/avatar1.jpg" title="Jason Rodgers avatar" />
-                            </a>
-                        </div>
-                        <div class="slds-media__body">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                                <p><a href="javascript:void(0);" title="Jason Rodgers">Jason Rogers</a></p>
-                            </div>
-                            <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@shibut12</a></p>
-                        </div>
-                    </header>
-                    <div class="slds-post__content slds-text-longform">
-                        <p>Hey there! Here's the latest demo presentation <a href="javascript:void(0);" title="Jenna Davis">@@Jenna Davis</a>, let me know if there are any changes. I've updated slides 3-8 and slides 16-18 slides with new product shots.</p>
-                    </div>
-                    <footer class="slds-post__footer">
-                        <ul class="slds-post__footer-actions-list slds-list_horizontal">
-                            <li class="slds-item slds-m-right--medium">20 shares</li>
-                            <li class="slds-item">259 views</li>
-                        </ul>
-                    </footer>
-                </article>
-            </li>
+    <div class="slds-feed slds-scrollable_y" style="height:90vh;">
+        <ul class="slds-feed__list" id="nu-tweets-container">
+            
         </ul>
     </div>
 </div>
+@section scripts{
+    <script src="~/js/app.js"></script>
+    <!-- Templates-->
+    <script type="text/template" id="nu-tweet-template">
+        <li class="slds-feed__item slds-border_bottom">
+            <article class="slds-post">
+                <header class="slds-post__header slds-media">
+                    <div class="slds-media__figure">
+                        <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
+                            <img alt="<%= screenName %>" src="<%= profileImageUrl %>" title="<%= screenName %>" />
+                        </a>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                            <p><a href="javascript:void(0);" title="<%= userName %>"><%= userName %></a></p>
+                        </div>
+                        <p class="slds-text-body_small"><a href="javascript:void(0);" title="Click for single-item view of this post" class="slds-text-link_reset">@@<%= screenName %></a></p>
+                    </div>
+                </header>
+                <div class="slds-post__content slds-text-longform">
+                    <img src="<%= mediaUrl %>" />
+                    <p><%= fullText %></p>
+                </div>
+                <footer class="slds-post__footer">
+                    <ul class="slds-post__footer-actions-list slds-list_horizontal">
+                        <li class="slds-item slds-m-right--medium">Retweeted <%= retweetCount %> times</li>
+                        <li class="slds-item">Tweeted on <%= tweetDate %></li>
+                    </ul>
+                </footer>
+            </article>
+        </li>
+    </script>
+}

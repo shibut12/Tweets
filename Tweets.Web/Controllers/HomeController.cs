@@ -9,6 +9,7 @@ namespace Tweets.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.UserName = HttpContext.User.Identity.Name; 
             return View();
         }
     }

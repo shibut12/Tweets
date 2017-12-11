@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Tweets.Web.Controllers
@@ -31,16 +30,13 @@ namespace Tweets.Web.Controllers
 
         public async Task<IActionResult> ExternalLoginCallback()
         {
-            //Extract info from externa; login
+            //Extract info from external login
             var result = await HttpContext.AuthenticateAsync();
             //If authenticate failed, send them back to login page
             if (result?.Succeeded != true)
             {
                 return RedirectToAction("Login", "Account");
             }
-
-            var externalUser = result.Principal;
-            var claims = externalUser.Claims.ToList();
 
             //If user signed in sussessfully, redirect user to the feed
             return RedirectToAction("Index", "Home");
