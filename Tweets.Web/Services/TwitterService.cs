@@ -81,16 +81,6 @@ namespace Tweets.Web.Services
             var postBody = "screen_name=" + Uri.EscapeDataString(screenName) + "&include_entities=true&tweet_mode=extended&count="+tweetCount;
             resource_url += "?" + postBody;
 
-            //using (var client = new HttpClient())
-            //{
-            //    client.DefaultRequestHeaders.Add("Authorization", authHeader);
-            //    using (var r = await client.GetAsync(new Uri(resource_url)))
-            //    {
-            //        string result = await r.Content.ReadAsStringAsync();
-            //        return result;
-            //    }
-            //}
-
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Authorization", authHeader);

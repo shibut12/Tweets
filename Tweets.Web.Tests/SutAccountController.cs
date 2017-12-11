@@ -9,15 +9,15 @@ namespace Tweets.Web.Tests
         [Fact]
         public void LoginShouldReturnAView()
         {
-            var accountController = new AccountController();
-            var response = accountController.Login();
+            var account = new AccountController();
+            var response = account.Login();
             Assert.IsType<ViewResult>(response);
         }
         [Fact]
         public void ExternalSigninShouldReturnAChallengeResultForTwitter()
         {
-            var accountController = new AccountController();
-            var response = accountController.ExternalSignin("Twitter");
+            var account = new AccountController();
+            var response = account.ExternalSignin("Twitter");
             Assert.IsType<ChallengeResult>(response);
         }
     }
