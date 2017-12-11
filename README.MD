@@ -2,6 +2,10 @@
 _Tweets_ is a web application created to complete below challenge.
 
 [![Cross platform Build Status](https://travis-ci.org/shibut12/Tweets.svg?branch=master)](https://travis-ci.org/shibut12/Tweets) [![Visual Studio build status](https://ci.appveyor.com/api/projects/status/6bx7tqof6godmelg?svg=true)](https://ci.appveyor.com/project/shibut12/tweets) 
+
+## DEMO
+Visit [tweets.codewithdot.net](http://tweets.codewithdot.net) to see a running version Tweets!. 
+
 ## CHALLENGE
 * Build a simple Twitter feed reader that shows the last 10 tweets from [@salesforce](https://twitter.com/salesforce) user timeline.
 * Each minute this list of tweets should automatically update to show only the 10 most recent tweets.
@@ -26,6 +30,10 @@ _Tweets_ is a web application created to complete below challenge.
 ### BACK-END RESTRICTIONS
 * The server should be runnable as a standalone process for evaluation.
 * Server code should have effective unit tests.
+---
+### CONFIGURATION
+* Application configuration
+* 
 ---
 ### HOW TO RUN
 This application needs .Net core 2.0 + runtime for server components. The development / build agents or machine should have Node JS, npm, and bower.
