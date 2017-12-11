@@ -4,7 +4,7 @@ _Tweets_ is a web application created to complete below challenge.
 [![Cross platform Build Status](https://travis-ci.org/shibut12/Tweets.svg?branch=master)](https://travis-ci.org/shibut12/Tweets) [![Visual Studio build status](https://ci.appveyor.com/api/projects/status/6bx7tqof6godmelg?svg=true)](https://ci.appveyor.com/project/shibut12/tweets) 
 
 ## DEMO
-Visit [tweets.codewithdot.net](http://tweets.codewithdot.net) to see a running version Tweets!. 
+Visit [tweets.codewithdot.net](http://tweets.codewithdot.net) to see a running version of Tweets!. 
 
 ## CHALLENGE
 * Build a simple Twitter feed reader that shows the last 10 tweets from [@salesforce](https://twitter.com/salesforce) user timeline.
@@ -52,9 +52,9 @@ AppSettings.json file is never checked in with real key in it.
 ## DESIGN
 ### SERVER SIDE COMPONENTS
 Server side component is implemented in ASP.NET Core. The server module is responsible for, running own web server, authenticating user sessions, serving static files, and communicating with Twitter API's to retrieve user's time line feed.
-##### SECURITY
-_Tweets_ application uses TWITTER identity provider for authenticating user session. Application uses _Authentication_ middleware for generating applciation cookie, create a challenge to redirect user to Twitter sign in page, respond to call back from Twitter after user session is authenticated. 
-This applciation uses _CookieAuthentication_ as primary authentication mechanism to preserve user identity till user sessionis signed out.
+##### SECURITY (AUTHENTICATION & AUTHORIZATION)
+_Tweets_ application uses TWITTER as an identity provider for authenticating user session. Application uses _Authentication_ middleware for generating applciation cookie, create a challenge to redirect user to Twitter sign in page, respond to call back from Twitter after user session is authenticated. 
+This applciation uses _CookieAuthentication_ as Authorization mechanism to preserve user identity till user sessionis signed out.
 This applciation uses _TwitterAuthentication_ to validate user identity. This application neither create user profiles nor retain any information about users.
 ##### MIDDLEWARE ARCHITECTURE
 _Middleware_ is an independant application component, it is integrated into ASP.NET Core application pipeline. Each middleware will get its own order and time to process each request and response.
@@ -63,9 +63,9 @@ _Authentication modules_, _ASP.NET Core MVC_, _StaticFiles_ are the middleware u
 
 ![alt text](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/_static/request-delegate-pipeline.png "Middleware architecture")
 ##### DEPENDANCY INJECTION OF SERVICES
-_Tweets_ application defines few of the reusable, and independant components as _Services_. These services are _Injected_ into ASP.NET Core _DI Container_. The instantiation adn destruction of these components are controlled by ASP.NET Core. Every _Controller_ or _Class_ that needed a specific service will receive instance of the required service in its contructor.
+_Tweets_ application defines reusable, and independant components as _Services_. These services are _Injected_ into ASP.NET Core _DI Container_. The instantiation adn destruction of these components are controlled by ASP.NET Core. Every _Controller_ or _Class_ that needed a specific service will receive instance of the required service in its contructor.
 
-_Tweets_ application defines, _TwitterService_ and _HttpHelper_ classes are services. As these are injected into the controllers, these servics are decoupled from main application and can be easily _mocked_ for unit testing.
+_Tweets_ application defines, _TwitterService_ and _HttpHelper_ classes are services. As these are injected into the controllers, these servics are decoupled from main application and can be easily _mocked_ while unit testing.
 ##### UNIT TESTING
 XUnit.Net is used along with MOQ framework for unit testing server side components. Each controller and service is unit tested to ensure they return expected types.
 Dependencies are Mocked using _MOQ_.
@@ -130,6 +130,7 @@ bower --version
  ##### Restore and build web application
  Run following commands in a shell
  ```posh
+ git clone https://github.com/shibut12/Tweets.git
 cd Tweets.Web
 dotnet restore
 bower install
@@ -137,6 +138,7 @@ dotnet build
 ```
 #### Restore, build, and test Test application
 ```posh
+git clone https://github.com/shibut12/Tweets.git
 cd Tweets.Web.Tests
 dotnet restore
 dotnet build
@@ -147,6 +149,7 @@ dotnet test
 cd Tweets.Web
 dotnet run
 ```
+Open [http://localhost:5007](http://localhost:5007) on your favorite browser to open _Tweets_ application.
 
 ### ENVIRONMENT
 #### Hosting
