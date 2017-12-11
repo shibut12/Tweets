@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="slds-align_absolute-center slds-grid slds-grid_vertical" >
+    <div class="slds-container_fluid slds-text-heading_large">Wonder what is it?</div>
+    <div class="slds-container_fluid slds-text-body_regular">Tweets is a simple Twitter feed reader that shows latest 10 tweets from <a href="https://twitter.com/salesforce" target="_blank">@@salesforce</a>.</div>
+    <div class="slds-container_fluid slds-text-body_regular">Tweets are refreshed every minute.</div>
+    <div class="slds-container_fluid slds-text-body_regular">You could filter these tweets to show only tweets that contains your search term.</div>
+    <div class="slds-container_fluid slds-text-heading_large">How do I use it?</div>
+    <div class="slds-container_fluid slds-text-body_regular">You need a Twitter account to use Tweets. If you dont have one, signup for an account <a href="https://twitter.com/signup?lang=en" target="_blank">here</a>.</div>
+    <div class="slds-container_fluid slds-text-body_regular">If you have one, awesome! lets get started. Click below button to start using Tweets.</div>
+    <form method="post" action="/Account/ExternalSignin" class="slds-container_fluid" >
+        <button type="submit" class="slds-button slds-button--brand slds-align_absolute-center" name="provider" value="Twitter">
+            <i class="ion-social-twitter tweets-icon-large"></i>
+            Signin with Twitter
+        </button>
+    </form>
+</div>
+<div class=""></div>
+<div class="slds-container_fluid slds-text-body_small slds-text-color_weak slds-text-align_center">
+    Tweets is a cross platform web application. It is Built with <a href="https://docs.microsoft.com/en-us/aspnet/core/">ASP NET core 2.0</a>
+    , and hosted in <a href="https://www.ubuntu.com/server">Ubuntu 16.04 LTS</a>.
+    It is opensource and <a href="https://github.com/shibut12/Tweets">Source code repository</a> is maintained in <a href="https://github.com/shibut12/Tweets">GitHub</a>. 
+    Tweets uses <a href="https://developer.twitter.com/en/docs">Twitter apis</a> to collect data and <a href="https://www.lightningdesignsystem.com/getting-started">Salesforce Lightning Design System</a> to style user interface.
+</div>

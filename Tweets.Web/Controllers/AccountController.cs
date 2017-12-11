@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,9 +8,15 @@ namespace Tweets.Web.Controllers
 {
     public class AccountController:Controller
     {
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
+        }
         public IActionResult Login()
         {
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
         [HttpPost]
@@ -29,14 +36,14 @@ namespace Tweets.Web.Controllers
             //If authenticate failed, send them back to login page
             if (result?.Succeeded != true)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Account");
             }
 
             var externalUser = result.Principal;
             var claims = externalUser.Claims.ToList();
 
             //If user signed in sussessfully, redirect user to the feed
-            return RedirectToAction("Index", "TwitterFeed");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

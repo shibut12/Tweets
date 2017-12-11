@@ -1,15 +1,29 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Tweets.Web.Models;
+using Tweets.Web.Services;
 
 namespace Tweets.Web.Controllers
 {
+    [Authorize]
     public class TwitterFeedController:Controller
     {
-        [Authorize]
-        [HttpGet]
-        public IActionResult Index()
+        private ITwitterService _twitterService;
+
+        public TwitterFeedController(ITwitterService twitterService)
         {
-            return View();
+            _twitterService = twitterService;
+        }
+        
+        [HttpGet]
+        public async Task<IEnumerable<Tweet>> GetAll()
+        {
+            var tweetsJson = await _twitterService.GetTweetsJson("salesforce");
+            TwitterFeedViewModel model = new TwitterFeedViewModel();
+            return (_twitterService.MapJson(tweetsJson));
         }
     }
 }
