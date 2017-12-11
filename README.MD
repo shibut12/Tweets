@@ -148,9 +148,9 @@ cd Tweets.Web
 dotnet run
 ```
 Open [http://localhost:5007](http://localhost:5007) on your favorite browser to open _Tweets_ application.
-
-### ENVIRONMENT
-#### Hosting
+---
+### DEMO OF TWEETS
+#### HOW IS IT HOSTED?
 * The demo web application is hosted in a shared Ubuntu 16.04LTS web server.
 * Link to demo application is [http://tweets.codewithdot.net](http://tweets.codewithdot.net).
 * On the host application server, applciation listens on port 5007 (http://*5007).
