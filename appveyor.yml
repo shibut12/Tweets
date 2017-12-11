@@ -28,9 +28,11 @@ test_script:
   - cmd: cd Tweets.Web.Tests
   - OpenCover.Console.exe -target:"dotnet.exe" -targetargs:" test " -register:user -oldStyle -output:OpenCoverResults.xml
 after_test:
-  - ps: |
-      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
-      bash codecov.sh -f "OpenCoverResults.xml" -t 65b44f9a-866e-47c8-9fb7-bc081529a952
+  - cmd: npm install -g codecov.io
+  - cmd: codecov < OpenCoverResults.xml -t 65b44f9a-866e-47c8-9fb7-bc081529a952
+  #- ps: |
+  #    Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
+  #    bash codecov.sh -f "OpenCoverResults.xml" -t 65b44f9a-866e-47c8-9fb7-bc081529a952
 on_finish :
   # any cleanup in here
 deploy: off
