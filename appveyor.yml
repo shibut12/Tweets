@@ -27,9 +27,9 @@ after_build:
 test_script:
   - OpenCover.Console.exe -target:"dotnet.exe" -targetargs:" test " -register:user -oldStyle -output:OpenCoverResults.xml
 after_test:
-  #- ps: |
-  #    Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
-  #    bash codecov.sh -f "OpenCoverResults.xml" -t $env:CODECOV_IO_TOKEN
+  - ps: |
+      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
+      bash codecov.sh -f "OpenCoverResults.xml" -t $env:CODECOV_IO_TOKEN
 on_finish :
   # any cleanup in here
 deploy: off
