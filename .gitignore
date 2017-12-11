@@ -290,3 +290,4 @@ __pycache__/
 /Tweets.Web/wwwroot/lib
 .vscode/
 /Tweets.Web/appsettings.json
+/Tweets.Web.Tests/OpenCoverResults.xml
