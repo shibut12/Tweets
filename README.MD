@@ -151,8 +151,9 @@ Open [http://localhost:5007](http://localhost:5007) on your favorite browser to 
 
 ### ENVIRONMENT
 #### Hosting
-* This web application is hosted in s shared Ubuntu 16.04LTS web server.
-* On the host server, applciation listens on port 5007 (http://*5007).
-* Supervisor is responsible for keeping application alive. 
-* NGINX listens on Port 80 of the server and redirect requests to port 5007 when incoming url matches tweets.codewithdot.net or www'tweets.codewithdot.net
+* The demo web application is hosted in a shared Ubuntu 16.04LTS web server.
+* Link to demo application is [http://tweets.codewithdot.net](http://tweets.codewithdot.net).
+* On the host application server, applciation listens on port 5007 (http://*5007).
+* __Supervisor__ is responsible for keeping application alive. 
+* __NGINX__ listens on Port 80 of the server and redirect requests to port 5007, when incoming url matches tweets.codewithdot.net or www'tweets.codewithdot.net
 ![alt text](https://raw.githubusercontent.com/shibut12/Tweets/master/hosting-setup.png "Hosting environemnt")
