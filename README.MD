@@ -31,24 +31,6 @@ Visit [tweets.codewithdot.net](http://tweets.codewithdot.net) to see a running v
 * The server should be runnable as a standalone process for evaluation.
 * Server code should have effective unit tests.
 ---
-### CONFIGURATION
-#### Application configuration
-Before you start running teh application, you need to install the application in [apps.twitter.com](https://apps.twitter.com). Once you complete application registration update the appSettings.json file with Settings from _Tweets and Acess Tokens_ tab.
-
-AppSettings.json file is never checked in with real key in it. 
-```json
-{
-  "Authentication": {
-    "Twitter": {
-      "ConsumerKey": "YOUR-CONSUMER-KEY",
-      "ConsumerSecret": "YOUR-CONSUMER-SECRET",
-      "oauth_token": "YOUR-ACCESS-TOKEN",
-      "oauth_token_secret": "YOUR-ACCESS-TOKEN-SECRET"
-    }
-  }
-}
-```
----
 ## DESIGN
 ### SERVER SIDE COMPONENTS
 Server side component is implemented in ASP.NET Core. The server module is responsible for, running own web server, authenticating user sessions, serving static files, and communicating with Twitter API's to retrieve user's time line feed.
@@ -106,7 +88,23 @@ I use __Travis CI__ for ensuring that the application is compatible __CROSS PLAT
 #### CODE COVERAGE: OPENCOVER & CODECOVE.IO 
 In the beginning, I decided to use __OpenCover__ for generating Code coverage report for server side components and __CodeCove.io__ to to Display reports. It iwas included in the _CI pipeline_ but due to a Bug in _OpenCover_ with _MOQ_, it is impossible to generate code coverage reports. 
 [Click here to read more about OpenCover open issue with MOQ](https://github.com/OpenCover/opencover/issues/771).
+### CONFIGURATION
+#### Application configuration
+Before you start running teh application, you need to install the application in [apps.twitter.com](https://apps.twitter.com). Once you complete application registration update the appSettings.json file with Settings from _Tweets and Acess Tokens_ tab.
 
+AppSettings.json file is never checked in with real key in it. 
+```json
+{
+  "Authentication": {
+    "Twitter": {
+      "ConsumerKey": "YOUR-CONSUMER-KEY",
+      "ConsumerSecret": "YOUR-CONSUMER-SECRET",
+      "oauth_token": "YOUR-ACCESS-TOKEN",
+      "oauth_token_secret": "YOUR-ACCESS-TOKEN-SECRET"
+    }
+  }
+}
+```
 ### HOW TO RUN
 This application needs .Net core 2.0 + runtime for server components. The development / build agents or machine should have Node JS, npm, and bower.
 #### Prerequisites
