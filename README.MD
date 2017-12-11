@@ -1,7 +1,7 @@
 # TWEETS
 _Tweets_ is a web application created to complete below challenge.
 
-[![Cross platform Build Status](https://travis-ci.org/shibut12/Tweets.svg?branch=master)](https://travis-ci.org/shibut12/Tweets) [![Visual Studio build status](https://ci.appveyor.com/api/projects/status/6bx7tqof6godmelg?svg=true)](https://ci.appveyor.com/project/shibut12/tweets) [![codecov](https://codecov.io/gh/shibut12/Tweets/branch/master/graph/badge.svg)](https://codecov.io/gh/shibut12/Tweets)
+[![Cross platform Build Status](https://travis-ci.org/shibut12/Tweets.svg?branch=master)](https://travis-ci.org/shibut12/Tweets) [![Visual Studio build status](https://ci.appveyor.com/api/projects/status/6bx7tqof6godmelg?svg=true)](https://ci.appveyor.com/project/shibut12/tweets) 
 ## CHALLENGE
 * Build a simple Twitter feed reader that shows the last 10 tweets from [@salesforce](https://twitter.com/salesforce) user timeline.
 * Each minute this list of tweets should automatically update to show only the 10 most recent tweets.
