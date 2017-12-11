@@ -51,6 +51,8 @@ _Tweets_ application defines, _TwitterService_ and _HttpHelper_ classes are serv
 ##### UNIT TESTING
 XUnit.Net is used along with MOQ framework for unit testing server side components. Each controller and service is unit tested to ensure they return expected types.
 Dependencies are Mocked using _MOQ_.
+
+---
 ### CLIENT SIDE COMPONENTS
 The user facing components are build using _Razor Views (CSHTML)_ along with _Backbone_, _Underscore_, and jQuery.
 ##### MODELS AND VIEWS USING BACKBONE & UNDERSCORE
@@ -74,10 +76,10 @@ _Tweets_ application has very minimal _vanilla javascript_ code in it. __IIFE (I
 ##### SALESFORCE LIGHNING DESIGN SYSTEM
 Markup's are styled using __Salesforce Lightning design system__.
 
+---
 ### CONTINUOUS INTEGRATION
 #### AUTOMATED BUILD & TEST: APPVEYOR
 __APPVEYOR__ provides a free Visual studio environemnt for building .NET application that are hosted in public repositories. it provides quick integration with __GitHub__ and easy to setup. I use _APPVEYOR_ for automated buiding and Uniting.
-
 
 [Link to AppVeyor](https://www.appveyor.com/)
 #### AUTOMATED BUILD & TEST: TRAVIS CI
@@ -88,6 +90,8 @@ I use __Travis CI__ for ensuring that the application is compatible __CROSS PLAT
 #### CODE COVERAGE: OPENCOVER & CODECOVE.IO 
 In the beginning, I decided to use __OpenCover__ for generating Code coverage report for server side components and __CodeCove.io__ to to Display reports. It iwas included in the _CI pipeline_ but due to a Bug in _OpenCover_ with _MOQ_, it is impossible to generate code coverage reports. 
 [Click here to read more about OpenCover open issue with MOQ](https://github.com/OpenCover/opencover/issues/771).
+
+---
 ### CONFIGURATION
 #### Application configuration
 Before you start running teh application, you need to install the application in [apps.twitter.com](https://apps.twitter.com). Once you complete application registration update the appSettings.json file with Settings from _Tweets and Acess Tokens_ tab.
@@ -105,6 +109,8 @@ AppSettings.json file is never checked in with real key in it.
   }
 }
 ```
+
+---
 ### HOW TO RUN
 This application needs .Net core 2.0 + runtime for server components. The development / build agents or machine should have Node JS, npm, and bower.
 #### Prerequisites
