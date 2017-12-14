@@ -95,15 +95,31 @@ namespace Tweets.Web.Services
             foreach (var tweetItem in tweets)
             {
                 Tweet tweet = new Tweet();
-                tweet.FullText = (string)tweetItem["full_text"];
-                tweet.UserName = (string)tweetItem["user"]["name"];
+                if (tweetItem["full_text"] != null)
+                    tweet.FullText = (string)tweetItem["full_text"];
+                else
+                    tweet.FullText = "";
+                if (tweetItem["user"] != null)
+                    tweet.UserName = (string)tweetItem["user"]["name"];
+                else
+                    tweet.UserName = "";
+
                 tweet.ScreenName = (string)tweetItem["user"]["screen_name"];
                 tweet.ProfileImageUrl = (string)tweetItem["user"]["profile_image_url_https"];
                 if (tweetItem["entities"]["media"] != null)
                     tweet.MediaUrl = (string)tweetItem["entities"]["media"][0]["media_url_https"];
-                else if (tweetItem["quoted_status"] != null)
+                else if (tweetItem["quoted_status"] != null && tweetItem["quoted_status"]["entities"]["media"] != null)
+                {
                     tweet.MediaUrl = (string)tweetItem["quoted_status"]["entities"]["media"][0]["media_url_https"];
-                tweet.RetweetCount = (int)tweetItem["retweet_count"];
+                }
+                else
+                    tweet.MediaUrl = "";
+
+                if (tweetItem["retweet_count"] != null)
+                    tweet.RetweetCount = (int)tweetItem["retweet_count"];
+                else
+                    tweetItem["retweet_count"] = "";
+
                 tweet.TweetDate = DateTime.ParseExact((string)tweetItem["created_at"], "ddd MMM dd HH:mm:ss K yyyy", CultureInfo.InvariantCulture).ToString("D");
                 mappedTweets.Add(tweet);
             }
